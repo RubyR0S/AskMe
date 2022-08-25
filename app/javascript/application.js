@@ -8,3 +8,4 @@ Rails.start()
 Turbolinks.start()
 // bootstrap.start()
 
+import * as bootstrap from "bootstrap"
