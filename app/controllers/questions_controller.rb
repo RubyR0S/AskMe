@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show edit update destroy]
 
   def show
+    @answer = @question.answers.build
   end
 
   def edit
