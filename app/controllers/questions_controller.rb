@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show edit update destroy]
-  
+
   def show
   end
 
@@ -47,6 +47,6 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = Question.find_by id: params[:id]
+    @question = Question.find params[:id]
   end
 end
