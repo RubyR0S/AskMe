@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: %i[show edit update destroy]
+  before_action :find_question!, only: %i[show edit update destroy]
 
   def show
     @answer = @question.answers.build
@@ -47,7 +47,7 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:title, :body)
   end
 
-  def find_question
+  def find_question!
     @question = Question.find params[:id]
   end
 end
