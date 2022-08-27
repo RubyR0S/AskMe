@@ -3,12 +3,13 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = @question.answers.build
+    @question.answers.order created_at: :desc
   end
 
   def edit
   end
 
-  def update
+  def update 
     if @question.update question_params
       flash[:success] = "Question updated!"
       redirect_to questions_path
