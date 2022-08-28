@@ -1,11 +1,18 @@
 class AnswersController < ApplicationController
   before_action :find_question!
+  before_action :find_answer!, except: :create
 
   def edit
-    @answer = @question.answers.find params[:id]
+    
   end
 
   def update
+    if @answer.update answer_params
+      flash[:success] = "Answer updated!"
+      redirect_to question_path(@question)
+    else
+      render :edit
+    end
   end
 
   def create
@@ -35,5 +42,9 @@ class AnswersController < ApplicationController
 
   def find_question!
     @question = Question.find params[:question_id]
+  end
+
+  def find_answer!
+    @answer = @question.answers.find params[:id]
   end
 end
