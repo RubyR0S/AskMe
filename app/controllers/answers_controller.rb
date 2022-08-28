@@ -1,5 +1,12 @@
 class AnswersController < ApplicationController
   before_action :find_question!
+
+  def edit
+  end
+
+  def update
+  end
+
   def create
     @answer = @question.answers.build answer_params
     
@@ -7,8 +14,16 @@ class AnswersController < ApplicationController
       flash[:success] = 'Answer created!'
       redirect_to question_path(@question)
     else
+      @answers = @question.answers.order created_at: :desc
       render 'questions/show'
     end
+  end
+
+  def destroy
+    answer = @question.answers.find params[:id]
+    answer.destroy
+    flash[:success] = 'Answer deleted!'
+    redirect_to question_path(@question)
   end
 
   private
