@@ -2,6 +2,7 @@ class AnswersController < ApplicationController
   before_action :find_question!
 
   def edit
+    @answer = @question.answers.find params[:id]
   end
 
   def update

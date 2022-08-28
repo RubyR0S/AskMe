@@ -17,22 +17,8 @@
 <hr class="my-3">
 
 <h2>Write your answer</h2>
-
-<%= render 'shared/errors', object: @answer %>
-
-<%= form_with model: [@question, @answer] do |f| %>
-  <div class="mb-3 row">
-    <div class="col-sm-2 col-form-label">
-      <%= f.label :body %>
-    </div>
-
-    <div class="col-sm-10">
-      <%= f.text_area :body, class: 'form-control' %>
-    </div>
-  </div>
-
-  <%= f.submit "Submit answer!", class: 'btn btn-primary' %>
-<% end %>
+ 
+<%= render 'answers/form' %>
 
 <h2 class="mt-5">Answers</h2>
 
@@ -49,6 +35,8 @@
         </p>
       </section>
 
+      <%= link_to 'Edit', edit_question_answer_path(@question, answer), 
+      class: 'btn btn-info btn-xs' %>
       <%= link_to 'Delete', question_answer_path(@question, answer), class: 'btn btn-danger btn-xs',
       data: {method: :delete, confirm: 'Are you sure?'} %>
     </div>
