@@ -1,0 +1,18 @@
+<article class="mb-3 card" id="answer-<%= answer.id %>">
+  <div class="card-body">
+    <section class="card-text">
+      <small><time datetime="<%= answer.formatted_created_at %>">
+        <%= answer.formatted_created_at %>
+      </time></small>
+
+      <p class="mt-2 mb-3">
+        <%= answer.body %>
+      </p>
+    </section>
+
+    <%= link_to 'Edit', edit_question_answer_path(@question, answer), 
+    class: 'btn btn-info btn-xs' %>
+    <%= link_to 'Delete', question_answer_path(@question, answer), class: 'btn btn-danger btn-xs',
+    data: {method: :delete, confirm: 'Are you sure?'} %>
+  </div>
+</article>
