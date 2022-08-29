@@ -25,8 +25,5 @@
 
 <h2 class="mt-5">Answers</h2>
 
-<% @answers.each do |answer| %>
-
-<% end %>
-
-<%= render @answers %>
+<%= render partial: 'answers/answer', collection: @answers,
+  as: :answer, locals: {question: @question} %>
