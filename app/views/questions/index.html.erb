@@ -15,7 +15,7 @@
         </time>
 
         <p class="my-2">
-          <%= strip_tags question.body %>
+          <%= truncate strip_tags(question.body), length: 150, omission: '... (continued)' %>
         </p>
       </section>
 
