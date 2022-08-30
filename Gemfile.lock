@@ -93,18 +93,6 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.0.3)
       railties (>= 6.0.0)
-    kaminari (1.2.2)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.2)
-      kaminari-activerecord (= 1.2.2)
-      kaminari-core (= 1.2.2)
-    kaminari-actionview (1.2.2)
-      actionview
-      kaminari-core (= 1.2.2)
-    kaminari-activerecord (1.2.2)
-      activerecord
-      kaminari-core (= 1.2.2)
-    kaminari-core (1.2.2)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -132,6 +120,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
+    pagy (5.10.1)
+      activesupport
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -206,7 +196,7 @@ DEPENDENCIES
   faker
   jbuilder
   jsbundling-rails
-  kaminari
+  pagy
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   sprockets-rails

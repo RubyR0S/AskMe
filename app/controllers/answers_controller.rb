@@ -4,7 +4,6 @@ class AnswersController < ApplicationController
   before_action :find_answer!, except: :create
 
   def edit
-    
   end
 
   def update
@@ -23,7 +22,7 @@ class AnswersController < ApplicationController
       flash[:success] = 'Answer created!'
       redirect_to question_path(@question)
     else
-      @answers = @question.answers.order created_at: :desc
+      @pagy, @answers = pagy @question.answers.order(created_at: :desc)
       render 'questions/show'
     end
   end
