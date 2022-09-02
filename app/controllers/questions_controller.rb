@@ -2,8 +2,10 @@ class QuestionsController < ApplicationController
   before_action :find_question!, only: %i[show edit update destroy]
 
   def show
+    @question = @question.decorate
     @answer = @question.answers.build
-    @pagy, @answers = pagy @question.answers.order(created_at: :desc) 
+    @pagy, @answers = pagy @question.answers.order(created_at: :desc)
+    @answers = @answers.decorate
   end
 
   def edit
@@ -11,7 +13,7 @@ class QuestionsController < ApplicationController
 
   def update 
     if @question.update question_params
-      flash[:success] = "Question updated!"
+      flash[:success] = "Question updated!"  
       redirect_to questions_path
     else
       render action: 'edit'
@@ -20,6 +22,7 @@ class QuestionsController < ApplicationController
 
   def index
     @pagy, @questions = pagy Question.order(created_at: :desc)
+    @questions = @questions.decorate
   end
 
   def new
