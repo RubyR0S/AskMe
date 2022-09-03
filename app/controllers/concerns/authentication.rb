@@ -11,6 +11,10 @@ module Authentication
     def user_signed_in?
       current_user.present?
     end
+
+    def sign_in(user)
+      session[:user_id] = user.id
+    end
   
     helper_method :current_user, :user_signed_in?
   end
