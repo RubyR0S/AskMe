@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :require_no_authentication, only: %i[new create]
   before_action :require_authentication, only: %i[edit update]
   before_action :find_user!, only: %i[edit update]
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update user_params
-      flash[:success] = "Your profile succsessfully updated!"
+      flash[:success] = 'Your profile succsessfully updated!'
       redirect_to edit_user_path(@user)
-    else 
+    else
       render :edit
     end
   end
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end 
+    end
   end
 
   private

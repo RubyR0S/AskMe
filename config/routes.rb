@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-resource :session, only: %i[new create destroy]
+  resource :session, only: %i[new create destroy]
 
-resources :users, only: %i[new create edit update ]
+  resources :users, only: %i[new create edit update]
 
-resources :questions do
-  resources :answers, except: %i[new show]
-end
+  resources :questions do
+    resources :answers, except: %i[new show]
+  end
 
-root 'pages#index' 
+  root 'pages#index'
 end
